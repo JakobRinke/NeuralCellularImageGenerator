@@ -8,9 +8,9 @@ public class StackedPatternCreator extends EvolutionaryPatternCreator {
 	
 	private EvolutionaryPatternCreator base;
 	
-	public StackedPatternCreator(EvolutionaryPatternCreator base, int imgsize,int iterations, float mergeVal, float[][][] images)
+	public StackedPatternCreator(EvolutionaryPatternCreator base, int imgsize,int iterations, float[][][] images)
 	{
-		super(imgsize,iterations, mergeVal, images);
+		super(imgsize,iterations, 0.0f, images);
 		this.base = base;
 		this.factor = (float) imgsize / base.imgSize;
 	}

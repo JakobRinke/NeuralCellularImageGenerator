@@ -1,0 +1,6 @@
+akt: Math.exp(x * 0.66) - 0.5f 
+public static int iterations1 = 10;
+public static int iterations2 = 8;	
+public static float mergeVal = 0.6f;
+[0.44843474, 0.101344936, -0.043713477, -0.29653114, 0.2848633, 0.18199046, ]
+[-0.06851135, 0.31605425, 0.34851712, -0.021155486, -0.18891539, 0.2547065, ]

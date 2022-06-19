@@ -193,7 +193,6 @@ public class EvolutionaryPatternCreator {
 		float[] errors = new float[population.length];
 		for (int i = 0; i < population.length; i++)
 		{
-			
 			errors[i] = getErrorOfInput(population[i]);
 		}
 		createNewGeneration(errors);

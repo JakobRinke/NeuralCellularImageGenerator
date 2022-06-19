@@ -116,12 +116,12 @@ public class MapCreator {
 	
 	public static float[][] scaleMap(float[][] map, float factor)
 	{
-		float[][] newmap = new float[map.length][map[0].length];
+		float[][] newmap = new float[(int) (map.length*factor)][(int) (map[0].length*factor)];
 		for (int i = 0; i < newmap.length; i++)
 		{
 			for (int j = 0; j < newmap[0].length; j++)
 			{
-				newmap[i][j] = map[(int) (i*factor)][(int) (j*factor)];
+				newmap[i][j] = map[(int) (i/factor)][(int) (j/factor)];
 			}
 		}
 		return newmap;
@@ -129,14 +129,14 @@ public class MapCreator {
 	
 	public static float[][][] scaleMaps(float[][][] map, float factor)
 	{
-		float[][][] newmaps = new float[map.length][map[0].length][map[0][0].length];
+		float[][][] newmaps = new float[map.length][(int)(map[0].length*factor)][(int) (map[0][0].length*factor)];;
 		for (int h = 0; h < newmaps.length; h++)
 		{
 			for (int i = 0; i < newmaps[0].length; i++)
 			{
 				for (int j = 0; j < newmaps[0][0].length; j++)
 				{
-					newmaps[h][i][j] = map[h][(int) (i*factor)][(int) (j*factor)];
+					newmaps[h][i][j] = map[h][(int) (i/factor)][(int) (j/factor)];
 				}
 			}
 		}
