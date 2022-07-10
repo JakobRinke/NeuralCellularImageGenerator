@@ -9,8 +9,8 @@ import de.automata.neural.base.EvolutionaryPatternTrainer;
 import de.automata.neural.base.MapCreator;
 import de.automata.neural.base.Pattern;
 import de.automata.neural.color.ColoredEvolutionaryPatternTrainer;
-import de.automata.neural.test.gui.ColoredFastTest;
-import de.automata.neural.test.gui.ColoredTestGui;
+import de.automata.neural.color.ColoredFastTest;
+import de.automata.neural.color.ColoredTestGui;
 import de.automata.neural.test.gui.FastTest;
 import de.automata.neural.test.gui.TestGui;
 

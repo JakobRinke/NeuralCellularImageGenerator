@@ -28,9 +28,9 @@ public class StackTest {
 	public static int iterations2 = 8;
 	
 	public static float mergeVal = 0.6f;
-	public static int baselayerTrainGens = 40;
+	public static int baselayerTrainGens = 100;
 	
-	public static void main(String[] args)
+	public static void main(String[] args) 
 	{
 		float[][][] main_images = new float[0][][];
 		try {

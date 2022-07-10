@@ -7,7 +7,7 @@ public class TrainerSettings {
 	
 	public static int popSize = 100;
 	
-	public static float mutationStrength = 0.005f;
+	public static float mutationStrength = 0.001f;
 	
 	
 	/* Absolut wichtig */

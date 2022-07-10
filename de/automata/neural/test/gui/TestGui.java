@@ -24,11 +24,14 @@ public class TestGui extends JPanel {
 	    g2D = (Graphics2D) g;
 	    
 	    try {
+	    	double t = System.currentTimeMillis(); 
 			float error = EvolutionaryPatternTrainer.processGenerationLearn();
-			System.out.println();
+			System.out.println("Time:       " + (System.currentTimeMillis()-t));
 			System.out.println("Generation: " + EvolutionaryPatternTrainer.generation);
 			System.out.println("Error:      " + error );
-			System.out.print("Filter:     ");
+			System.out.print("Filter:       ");
+			System.out.println();
+			
 			printFilter(EvolutionaryPatternTrainer.population[0]);
 			
 			Pattern p = new Pattern(EvolutionaryPatternTrainer.getFilterFromInputs(EvolutionaryPatternTrainer.population[0]));

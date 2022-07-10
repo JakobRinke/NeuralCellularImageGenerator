@@ -157,13 +157,13 @@ public class MapCreator {
 			}
 		}
 		
-		return out;
+		return out / (map1[0].length*map1.length);
 	}
 	
 	public static float compareMaps(float[][] map1, float[][][] map2, int k)
 	{
 		float out = 0;
-		for (int y = 0; y < map1[0].length; y++)
+		for (int y = 0; y < map1[0].length; y++) 
 		{
 			for (int x = 0; x < map1.length; x++)
 			{
@@ -172,7 +172,12 @@ public class MapCreator {
 		}
 		
 		return out;
+	
 	}
+	
+	
+	
+	
 	
 	
 	public static float getAvgrBrightness(float[][] map)
@@ -207,6 +212,38 @@ public class MapCreator {
 		return out;
 	}
 	
+	
+	public static float[][][] colorInMap(float[][] map, float[] col)
+	{
+		float[][][] out = new float[map.length][map[0].length][3];
+		for (int y = 0; y < map[0].length; y++)
+		{
+			for (int x = 0; x < map.length; x++)
+			{
+				out[x][y][0] = map[x][y] * col[0];
+				out[x][y][1] = map[x][y] * col[1];
+				out[x][y][2] = map[x][y] * col[2];
+			}
+		}
+		return out;
+	}
+	
+	public static float[][][] colorInMap(float[][] map, float[] col1, float[] col2)
+	{
+		float[][][] out = new float[map.length][map[0].length][3];
+		float[] col = new float[] {col2[0] - col1[0], col2[1] - col1[1], col2[2] - col1[2]};
+		for (int y = 0; y < map[0].length; y++)
+		{
+			for (int x = 0; x < map.length; x++)
+			{
+				if (map[x][y] == 0) { out[x][y] = new float[3]; continue; }
+				out[x][y][0] = col1[0] + map[x][y] * col[0];
+				out[x][y][1] = col1[1] + map[x][y] * col[1];
+				out[x][y][2] = col1[2] + map[x][y] * col[2];
+			}
+		}
+		return out;
+	}
 	
 	
 }

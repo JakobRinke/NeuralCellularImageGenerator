@@ -42,7 +42,7 @@ public class EvolutionaryPatternCreator {
 	
 
 	
-	public float[][] getFilterFromInputs(float[] inputs)
+	public static float[][] getFilterFromInputs(float[] inputs)
 	{
 		return new float[][] {{inputs[0], inputs[1], inputs[2]},
 							  {inputs[3], inputs[4], inputs[5]},

@@ -13,6 +13,7 @@ public class StackedPatternCreator extends EvolutionaryPatternCreator {
 		super(imgsize,iterations, 0.0f, images);
 		this.base = base;
 		this.factor = (float) imgsize / base.imgSize;
+	
 	}
 	
 	

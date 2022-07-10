@@ -1,4 +1,4 @@
-package de.automata.neural.test.gui;
+package de.automata.neural.color;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -10,8 +10,6 @@ import de.automata.neural.base.EvolutionaryPatternTrainer;
 import de.automata.neural.base.ImagePostprocessor;
 import de.automata.neural.base.Pattern;
 import de.automata.neural.base.TrainerSettings;
-import de.automata.neural.color.ColoredEvolutionaryPatternTrainer;
-import de.automata.neural.color.ColoredTrainerSettings;
 import de.automata.neural.test.Start;
 
 public class ColoredFastTest extends JPanel {

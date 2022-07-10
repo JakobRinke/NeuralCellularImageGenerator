@@ -6,43 +6,38 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
-import de.automata.neural.base.EvolutionaryPatternTrainer;
-import de.automata.neural.base.MapCreator;
-import de.automata.neural.base.Pattern;
-import de.automata.neural.base.TrainerSettings;
 import de.automata.neural.test.StackTest;
-import de.automata.neural.test.Start;
+import de.automata.neural.test.Test256;
 
-public class StackTestGui extends JPanel{
+public class Gui256 extends JPanel {
 	
-	
-	public StackTestGui() {
+
+	public Gui256() {
 	    setBackground(Color.white);
 	}
 	
-	int size = StackTest.windowSize / 64;
+	int size = Test256.windowSize / Test256.ImgSize;
 	
-	  public void paint(Graphics g) {
+	public void paint(Graphics g) {
 	    Graphics2D g2D;
 	    g2D = (Graphics2D) g;
 	    
 	    try {
-			float error = StackTest.mainLayer.processGenerationLearn();
-			 StackTest.baseLayer.processGenerationLearn();
+			float error = Test256.layer256.processGenerationLearn();
 			
-			System.out.println("Generation: " + StackTest.mainLayer.generation);
+			System.out.println("Generation: " + Test256.layer256.generation);
 			System.out.println("Error:      " + error );
 //			System.out.print("Filter1:     ");		
 //			printFilter(StackTest.baseLayer.population[0]);
 			System.out.print("Filter2:     ");		
-			printFilter(StackTest.mainLayer.population[0]);
+			printFilter(Test256.layer256.population[0]);
 			System.out.println();
 			
 			
-			float[][] m = StackTest.mainLayer.generateAPattern();
-		    for (int x = 0; x < StackTest.ImgSize; x++)
+			float[][] m = Test256.layer256.generateAPattern();
+		    for (int x = 0; x < Test256.ImgSize; x++)
 		    {
-		    	for (int y = 0; y < StackTest.ImgSize; y++)
+		    	for (int y = 0; y < Test256.ImgSize; y++)
 		    	{
 		    		int rgbNum = (int) (m[x][y] * 255);
 		    		g2D.setColor(new Color(rgbNum,rgbNum,rgbNum));
@@ -74,5 +69,4 @@ public class StackTestGui extends JPanel{
 		  }
 		  System.out.println("]");
 	  }
-	  
 }

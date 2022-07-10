@@ -4,3 +4,27 @@ public static int iterations2 = 8;
 public static float mergeVal = 0.6f;
 [0.44843474, 0.101344936, -0.043713477, -0.29653114, 0.2848633, 0.18199046, ]
 [-0.06851135, 0.31605425, 0.34851712, -0.021155486, -0.18891539, 0.2547065, ]
+
+
+akt: 4 * Math.abs(x*x*x*x*x - x*x*x*x + x*x*x- x*x);
+public static int iterations1 = 10;
+public static int iterations2 = 8;
+public static float mergeVal = 0.6f;
+[-0.12502679, -0.041955378, 0.10660202, 0.3658565, 0.574643, -0.019185163, ]
+[-0.020921621, 0.38974252, 0.08021445, 0.35899952, -0.30708167, -0.06778304, ]
+
+
+akt: 4 * Math.abs(x*x*x*x*x - x*x*x*x + x*x*x- x*x);
+public static int iterations1 = 10;
+public static int iterations2 = 8;
+public static float mergeVal = 0.6f;
+[0.027768875, 0.16801517, 0.24921675, 0.3069113, 0.10190631, -0.54471344, ]
+[-0.14025025, 0.2759504, -0.20799229, 0.63247293, -0.006818312, 0.3299658, ]
+
+
+akt: 4 * Math.abs(x*x*x*x*x - x*x*x*x + x*x*x- x*x);
+public static int iterations1 = 10;
+public static int iterations2 = 8;
+public static float mergeVal = 0.6f;
+[0.23469786, 0.215788, -0.10102302, -0.049599886, -0.095998146, 0.28180242, ]
+[-0.114222445, 0.2570161, 0.06391705, 0.39748684, -0.6950824, 0.67140156, ]

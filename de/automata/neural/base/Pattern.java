@@ -41,31 +41,30 @@ public class Pattern {
 	 */
 	public float[][] processNetwork(int number)
 	{
+		int width = map.length,  height = map[0].length;
 		float[][] newmap = map.clone();
-		int width = newmap.length,  height = newmap[0].length;
 		for (int i = 0; i < number; i++)
 		{
 			float[][] m = new float[width][height];
-			for (int x = 0; x < map.length; x++)
+			for (int x = 0; x < width; x++)
 			{
-				for (int y = 0; y < map[0].length; y++)
-				{
-					for (int k = -1; k< 2; k++)
-					{
-						for (int j = -1; j < 2; j++)
-						{
-							
-							int nX = x + k, nY = y + j;
-								 if (nX<0)       {nX += width;  }
-							else if (nX>=width)  {nX -= width;  }
-								 if (nY<0)       {nY += height; }
-							else if (nY>=height) {nY -= height; }
-							
-							m[x][y] += newmap[nX][nY] * filter[k+1][j+1];	
-						}
-					}
-					m[x][y] = activate(m[x][y]);
-					 
+				int nX1 = (width + x-1)%width;
+				int nX2 =  (x+1)%width;
+				for (int y = 0; y <	newmap.length; y++)
+				{			
+					int nY1 = (height + y-1)%height;
+					int nY2 =  (y+1)%height;
+					m[x][y] += newmap[nX1][nY1] * filter[0][0];	
+					m[x][y] += newmap[nX1][y] * filter[0][1];	
+					m[x][y] += newmap[nX1][nY2] * filter[0][2];	
+					m[x][y] += newmap[x][nY1] * filter[1][0];	
+					m[x][y] += newmap[x][y] * filter[1][1];	
+					m[x][y] += newmap[x][nY2] * filter[1][2];	
+					m[x][y] += newmap[nX2][nY1] * filter[2][0];	
+					m[x][y] += newmap[nX2][y] * filter[2][1];	
+					m[x][y] += newmap[nX2][nY2] * filter[2][2];
+
+					m[x][y] = activate(m[x][y]); 
 				}
 			}
 			newmap = m;
@@ -83,7 +82,11 @@ public class Pattern {
 	
 	private float activation(float x)
 	{
-		return  (float) Math.exp(x*0.66f)-1f;	
+//		return 4 * Math.abs(x*x*x*x*x - x*x*x*x + x*x*x- x*x);
+		return Math.abs(x*x -1);
+//		return  x*x;
+//		return (float) (Math.exp(x*0.66) - 0.5f);
+//		return (float) Math.cos(12*x)*0.5f+0.5f;
 	}
 	
 	
