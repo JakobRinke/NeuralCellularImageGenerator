@@ -87,6 +87,7 @@ public class Pattern {
 //		return  x*x;
 //		return (float) (Math.exp(x*0.66) - 0.5f);
 //		return (float) Math.cos(12*x)*0.5f+0.5f;
+//		return Math.abs(x*x*x*x-x*x*x-x*x+1.5f*x);
 	}
 	
 	

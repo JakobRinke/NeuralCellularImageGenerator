@@ -23,13 +23,19 @@ public class Gui256 extends JPanel {
 	    g2D = (Graphics2D) g;
 	    
 	    try {
+//	    	Test256.layer16.processGenerationLearn();
+//	    	Test256.layer64.processGenerationLearn();
 			float error = Test256.layer256.processGenerationLearn();
 			
 			System.out.println("Generation: " + Test256.layer256.generation);
 			System.out.println("Error:      " + error );
 //			System.out.print("Filter1:     ");		
 //			printFilter(StackTest.baseLayer.population[0]);
-			System.out.print("Filter2:     ");		
+			System.out.print("Filter16 :     ");		
+			printFilter(Test256.layer16.population[0]);
+			System.out.print("Filter64 :     ");		
+			printFilter(Test256.layer64.population[0]);
+			System.out.print("Filter256:     ");		
 			printFilter(Test256.layer256.population[0]);
 			System.out.println();
 			

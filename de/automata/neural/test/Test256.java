@@ -36,6 +36,9 @@ public class Test256 {
 	public static int baselayerTrainGens2 = 100;
 	
 	
+	public static float[] filter1 = new float[] {-0.12502679f, -0.041955378f, 0.10660202f, 0.3658565f, 0.574643f, -0.019185163f  };
+	public static float[] filter2 = new float[] {-0.020921621f, 0.38974252f, 0.08021445f, 0.35899952f, -0.30708167f, -0.06778304f};
+	
 	public static void main(String[] args) {
 		
 		float[][][] images256 = new float[0][][];
@@ -57,25 +60,27 @@ public class Test256 {
 		
 		layer256 = new StackedPatternCreator(layer64, ImgSize, iterations2, images256);
 		
+		layer16.population[0] = filter1;
+		layer64.population[0] = filter2;
 		
-		System.out.println("Training Layer16...");
-		try {
-			float err = layer16.trainFor(baselayerTrainGens);
-			System.out.println("Layer16 Trained, Error: " + err);
-			StackTestGui.printFilter(layer16.population[0]);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		System.out.println("\nTraining Layer64...");
-		try {
-			float err = layer64.trainFor(baselayerTrainGens);
-			System.out.println("Layer64 Trained, Error: " + err);
-			StackTestGui.printFilter(layer64.population[0]);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		System.out.println("\n");
+//		System.out.println("Training Layer16...");
+//		try {
+//			float err = layer16.trainFor(baselayerTrainGens);
+//			System.out.println("Layer16 Trained, Error: " + err);
+//			StackTestGui.printFilter(layer16.population[0]);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		
+//		System.out.println("\nTraining Layer64...");
+//		try {
+//			float err = layer64.trainFor(baselayerTrainGens);
+//			System.out.println("Layer64 Trained, Error: " + err);
+//			StackTestGui.printFilter(layer64.population[0]);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		System.out.println("\n");
 		
 		
 		JFrame frame1 = new JFrame("2D Text");
