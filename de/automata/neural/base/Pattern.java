@@ -82,8 +82,8 @@ public class Pattern {
 	
 	private float activation(float x)
 	{
-//		return 4 * Math.abs(x*x*x*x*x - x*x*x*x + x*x*x- x*x);
-		return Math.abs(x*x -1);
+		return 4 * Math.abs(x*x*x*x*x - x*x*x*x + x*x*x- x*x);
+//		return Math.abs(x*x -1);
 //		return  x*x;
 //		return (float) (Math.exp(x*0.66) - 0.5f);
 //		return (float) Math.cos(12*x)*0.5f+0.5f;
