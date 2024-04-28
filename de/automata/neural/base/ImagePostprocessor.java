@@ -55,7 +55,7 @@ public class ImagePostprocessor {
 			else if (nX>=img.length)  {nX -= img.length;  }
 				 if (nY<0)       {nY += img[0].length; }
 			else if (nY>=img[0].length) {nY -= img[0].length; }
-			
+
 				m[i][j] += img[nX][nY];
 
 			}
@@ -64,7 +64,7 @@ public class ImagePostprocessor {
 	}
 	
 	
-	public static float[][] smoothInMap(float[][] map1)
+	public static float[][] smoothInMap(float[][] map1, int nonZero)
 	{
 		float[][] map2 = new float[map1.length][map1[0].length];
 		
@@ -76,9 +76,9 @@ public class ImagePostprocessor {
 				{
 					float f[] = new float[] {map1[x-1][y-1], map1[x-1][y], map1[x-1][y+1], map1[x][y-1], map1[x][y], map1[x][y+1], map1[x+1][y-1], map1[x+1][y], map1[x+1][y+1]};
 					
-					if(map1[x][y] == 0 && countNonZero(f) >= 4)
+					if(map1[x][y] == 0 && countNonZero(f) >= nonZero)
 					{
-						map2[x][y] = count(f) / countNonZero(f);
+						map2[x][y] = count(f) / countNonZero(f) * 0.8f;
 					}
 					else { map2[x][y] = map1[x][y]; }
 				}
@@ -91,7 +91,7 @@ public class ImagePostprocessor {
 		return map2;
 	}
 	
-	public static float[][] smoothMap(float[][] map1)
+	public static float[][] smoothMap(float[][] map1, float smoothingStrength)
 	{
 		float[][] map2 = new float[map1.length][map1[0].length];
 		
@@ -103,9 +103,9 @@ public class ImagePostprocessor {
 				{
 					float f[] = new float[] {map1[x-1][y-1], map1[x-1][y], map1[x-1][y+1], map1[x][y-1], map1[x][y], map1[x][y+1], map1[x+1][y-1], map1[x+1][y], map1[x+1][y+1]};
 					
-					if(countNonZero(f) >= 4)
+					if(countNonZero(f) >= 1 && map1[x][y] != 0)
 					{
-						map2[x][y] = count(f) / countNonZero(f);
+						map2[x][y] = (count(f) / countNonZero(f)) * smoothingStrength + map1[x][y] * (1-smoothingStrength);
 					}
 					else { map2[x][y] = map1[x][y]; }
 				}
@@ -118,14 +118,16 @@ public class ImagePostprocessor {
 		return map2;
 	}
 	
-	
-	public static float[][] useTan(float[][] map)
+	public static float angle = 50;
+	public static float[][] useTan(float[][] map, float strength)
 	{
 		for (int y = 0; y < map[0].length; y++)
 		{
 			for (int x = 0; x < map.length; x++)
 			{
-				map[x][y] = (float) (Math.tanh(3*map[x][y]-1.5)/2 + 0.5f);
+				if (map[x][y] != 0) {
+					map[x][y] = (float) (Math.tanh(map[x][y] * angle - strength*angle) + 1) / 2;
+				}
 			}
 		}
 		return map;

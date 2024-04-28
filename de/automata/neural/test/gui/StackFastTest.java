@@ -29,12 +29,12 @@ public class StackFastTest extends JPanel{
 			float[][] m = StackFilterTest.createMap();
 			if (StackFilterTest.postProcessOnDisplay)
 			{
-				m = ImagePostprocessor.brightnessFilter(m, 0.15f);
+				m = ImagePostprocessor.brightnessFilter(m, 0.0f);
 				m = ImagePostprocessor.contrastFilter(m, 1.25f);
 //				m = ImagePostprocessor.useTan(m);
 				m = ImagePostprocessor.FilterOut(m, 0.35f);
-				m = ImagePostprocessor.smoothInMap(m);
-				m = ImagePostprocessor.smoothMap(m);
+				m = ImagePostprocessor.smoothInMap(m, 5);
+				m = ImagePostprocessor.smoothMap(m, 1.0f);
 //				m = ImagePostprocessor.Offset(m, 0, 2);
 			}
 			

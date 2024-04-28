@@ -35,8 +35,8 @@ public class FilterTest256 {
 //	public static float[] filter2 = new float[] {0.0056081545f, -0.38131356f, -0.3657626f, -0.34835002f, 0.2985774f, 0.38770685f};
 //	public static float[] filter3 = new float[] {-0.1461729f, 0.31471065f, 0.3175825f, 0.6659986f, 0.08012462f, -0.5713932f};
 //	
-	public static float[] color1 = new float[] {0.3f, 0.3f, 1};
-	public static float[] color2 = new float[] {0.3f, 1f, 1f};
+	public static float[] color2 = new float[] {1, 1, 1};
+	public static float[] color1 = new float[] {0.15f, 0.15f, 0.15f};
 
 	
 	

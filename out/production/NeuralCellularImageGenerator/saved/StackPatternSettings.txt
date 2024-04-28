@@ -1,0 +1,8 @@
+
+	public static int iterations1 = 10;
+	public static int iterations2 = 8;
+	
+	public static float mergeVal = 0.6f;
+	public static int baselayerTrainGens = 100;
+
+	public static float mutationStrength = 0.001f;
